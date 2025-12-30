@@ -1,0 +1,23 @@
+# Verbosity & settings for basic programs
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	mkdir="mkdir -pv" \
+    cat="bat" \
+	rsync="rsync -vrPlu" \
+    sudo="doas "
+
+# Colorization
+alias \
+	ls="ls -hN --color=auto --group-directories-first" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ip="ip -color=auto"
+
+# Abbreviations
+alias \
+    vi='nvim' \
+    ll='ls -l' \
+    la='ls -a' \
+    dot='/usr/bin/git --git-dir="$XDG_DATA_HOME/dotfiles/" --work-tree="$HOME"'
