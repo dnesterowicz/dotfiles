@@ -4,9 +4,9 @@ alias \
 	mv="mv -iv" \
 	rm="rm -vI" \
 	mkdir="mkdir -pv" \
-    cat="bat" \
+	cat="bat" \
 	rsync="rsync -vrPlu" \
-    sudo="doas "
+	sudo="doas "
 
 # Colorization
 alias \

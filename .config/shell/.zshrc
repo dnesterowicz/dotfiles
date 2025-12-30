@@ -18,6 +18,7 @@ SAVEHIST=10000000
 # Keybinds
 autoload -z edit-command-line; zle -N edit-command-line; 
 bindkey "^e" edit-command-line
+bindkey -s ^f "tmux-sessionizer\n"
 
 # Vi mode
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
