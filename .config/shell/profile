@@ -4,13 +4,20 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
-export ZDOTDIR="$XDG_CONFIG_HOME/shell"
 export HISTFILE="$XDG_CACHE_HOME/zsh/history"
+export ZDOTDIR="$XDG_CONFIG_HOME/shell"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
+export XDG_DOCUMENTS_DIR="$HOME/docs"
+export XDG_DOWNLOAD_DIR="$HOME/dl"
 
 # Default programs
 export EDITOR="nvim"
 export MANPAGER='nvim +Man!'
+export BROWSER='w3m'
+
+# Other programs
+export ZK_NOTEBOOK_DIR="$HOME/docs/notes" 
 
 # Path
 export PATH="$PATH:$HOME/.local/bin"
