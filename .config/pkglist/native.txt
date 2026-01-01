@@ -5,7 +5,6 @@ bc
 csvkit
 dash
 debugedit
-doas
 fakeroot
 fzf
 git
@@ -16,6 +15,7 @@ make
 man-db
 man-pages
 newsboat
+opendoas
 openssh
 pass
 pass-otp
