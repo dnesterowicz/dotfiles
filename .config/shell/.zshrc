@@ -13,17 +13,16 @@ $ "
 HISTSIZE=100000
 SAVEHIST=100000
 
-# Keybinds
-autoload -z edit-command-line; zle -N edit-command-line; 
-bindkey "^e" edit-command-line
-bindkey -s ^t "tmux-sessionizer\n"
-#
 # Tab autocompletion
 autoload -U compinit
 zstyle ':completion:*' menu select
 zmodload zsh/complist
 compinit
-_comp_options+=(globdots)	# Include hidden files.
+
+# Keybinds
+autoload -z edit-command-line; zle -N edit-command-line; 
+bindkey "^e" edit-command-line
+bindkey -s ^t "tmux-sessionizer\n"
 
 # Vi mode
 source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
