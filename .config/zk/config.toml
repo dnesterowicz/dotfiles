@@ -1,0 +1,13 @@
+[note]
+template = "~/.config/zk/template.md"
+
+exclude = [
+    "assets/*",
+    "old-notes/*",
+    "log.md"
+]
+
+[format.markdown]
+hashtags = false
+colon-tags = false
+multiword-tags = false
