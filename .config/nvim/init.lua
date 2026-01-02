@@ -8,6 +8,7 @@ vim.o.shiftwidth = 0
 vim.o.smartcase = true
 vim.o.wrap = false
 vim.o.splitbelow = true
+vim.o.termguicolors = true
 vim.o.clipboard = "unnamedplus"
 vim.g.mapleader = " "
 
@@ -20,7 +21,7 @@ vim.pack.add({
 	"https://github.com/mason-org/mason.nvim",
 	"https://github.com/stevearc/conform.nvim",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
-	"https://github.com/rebelot/kanagawa.nvim",
+	"https://github.com/vague-theme/vague.nvim",
 })
 
 --- Plugins setup
@@ -58,8 +59,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-require("kanagawa").setup()
-vim.cmd("colorscheme kanagawa-dragon")
+vim.cmd("colorscheme vague")
 
 --- Keymaps
 vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
