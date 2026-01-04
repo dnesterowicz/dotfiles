@@ -12,12 +12,20 @@ export XDG_DOCUMENTS_DIR="$HOME/docs"
 export XDG_DOWNLOAD_DIR="$HOME/dl"
 
 # Default programs
-export EDITOR="nvim"
+export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
-export BROWSER='w3m'
+export BROWSER='librewolf'
+export TERMINAL='footclient'
+export MENU='wmenu'
+export MENU_OPTS='-i -f "FiraCodeNerdFont Regular 12"'
+export RUNNER='wmenu-run'
 
 # Other programs
 export ZK_NOTEBOOK_DIR="$HOME/docs/notes" 
 
 # Path
 export PATH="$PATH:$HOME/.local/bin"
+
+# Start desktop server
+export XDG_SESSION_TYPE="wayland"
+exec dwl -s $XDG_CONFIG_HOME/wm/init
