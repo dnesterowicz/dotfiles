@@ -1,0 +1,7 @@
+#!/bin/sh
+
+foot --server &
+swaybg -i $XDG_CONFIG_HOME/wallpaper &
+gammastep &
+someblocks -p | dwlb -status-stdin all &
+dwlb -ipc
