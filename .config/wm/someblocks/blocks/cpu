@@ -1,0 +1,2 @@
+#/bin/sh
+top -bn 2 -d 0.01 | grep '^%Cpu' | awk 'END{ printf("%02.1f%%", ($2+$4+$6)) }'
