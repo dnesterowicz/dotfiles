@@ -1,2 +1,6 @@
+backlight_control
+kanata-bin
+librewolf-bin
 neovim-git
+sc-im
 zsh-vi-mode
