@@ -7,6 +7,6 @@ if [ $(echo "$usage >= 1024.0" | bc) -eq "1" ]; then
   in_GB=$(echo "$usage / 1024.0" | bc -l)
   printf "%.1fGB" $in_GB
 else
-  printf "%dMB" $usage
+  printf "%dMB" "$usage"
 fi
 
