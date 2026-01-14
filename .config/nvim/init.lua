@@ -84,14 +84,12 @@ vim.keymap.set("n", "<leader>s/", function()
 		prompt_title = "Live Grep in Open Files",
 	})
 end, { desc = "[S]earch [/] in Open Files" })
-vim.keymap.set("n", "<leader>sc", function()
-	builtin.find_files({ cwd = "~/.config/", hidden = true })
-end, { desc = "[S]earch [C]onfig Files" })
+vim.keymap.set("n", "<leader>sc", function() builtin.find_files({ cwd = "~/.config/", hidden = true }) end, { desc = "[S]earch [C]onfig Files" })
+vim.keymap.set("n", "<leader>ss", function() builtin.find_files({ cwd = "~/.local/bin" }) end, { desc = "[S]earch [S]cripts in ~/.local/bin" })
 
 vim.keymap.set("n", "<leader>f", require("conform").format, { desc = "[F]ormat buffer" })
 
 vim.keymap.set("n", "<leader>no", "<Cmd>ZkNotes { sort = { 'modified' } }<CR>", { desc = " [O]pen Note" })
-vim.keymap.set("n", "<leader>nn", "<Cmd>ZkNew { title = vim.fn.input('Title: ') }<CR>", { desc = "[N]ew Note" })
 vim.keymap.set("n", "<leader>nt", "<Cmd>ZkTags<CR>", { desc = "Open Note by [T]ag" })
 vim.keymap.set("n", "<leader>nl", "<Cmd>ZkInsertLink<CR>", { desc = "Insert a [L]ink" })
 vim.keymap.set("n", "<leader>nb", "<Cmd>ZkBacklinks<CR>", { desc = "[B]acklinking notes." })
