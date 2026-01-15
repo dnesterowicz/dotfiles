@@ -1,0 +1,3 @@
+#!/bin/sh
+grep -vE '^#|^$' $XDG_DATA_HOME/bookmarks | eval "$MENU $MENU_OPTS -l 10" | cut -d' ' -f1 | xargs -r wtype
+
