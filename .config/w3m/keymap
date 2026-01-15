@@ -16,7 +16,7 @@ keymap 0    LINE_BEGIN
 keymap $    LINE_END
 keymap gg   BEGIN
 keymap G    END
-keymap u  UNDO
+keymap u    UNDO
 keymap C-r  REDO
 keymap /    ISEARCH
 keymap ?    ISEARCH_BACK
@@ -45,9 +45,9 @@ keymap Esc-y EXTERN 'printf %s | wl-copy'
 keymap Esc-b EXTERN 'printf %s >> ~/.local/share/bookmarks'
 # }}}
 
-# Tab operations {{{
+# Tabs {{{
 keymap C-t   NEW_TAB
-keymap x    CLOSE_TAB
+keymap X    CLOSE_TAB
 keymap J    PREV_TAB
 keymap K    NEXT_TAB
 keymap <    TAB_LEFT
@@ -64,15 +64,25 @@ keymap ]    LINK_END
 keymap t    TAB_LINK
 keymap yy  EXTERN_LINK 'printf %s | wl-copy'
 keymap b   EXTERN_LINK 'printf %s >> ~/.local/share/bookmarks'
-
-keymap i    PEEK_IMG
-keymap I    VIEW_IMAGE 
+keymap xw  EXTERN_LINK
+#images
+keymap i  NEXT_IMAGE
+keymap I  PREV_IMAGE
+keymap C-i    VIEW_IMAGE 
 keymap SPC-I SAVE_IMAGE
 # }}}
  
-# Macros {{{
-keymap !    SHELL
-keymap xb   SHELL "~/.local/bin/bookmark"
+# Misc {{{
+keymap SPC-o OPTIONS
+keymap SPC-h HELP
+keymap SPC-x INFO
+keymap SPC-r REINIT
+keymap SPC-w EXTERN
+keymap SPC-b SHELL "$EDITOR ~/.local/share/bookmarks"
+keymap SPC-c SHELL "$EDITOR ~/.config/w3m/config"
+keymap SPC-k SHELL "$EDITOR ~/.config/w3m/keymap"
+keymap xb    SHELL "~/.local/bin/bookmark"
+
 keymap o COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar.cgi ; DICT_WORD"
 keymap O COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar-tab.cgi ; DICT_WORD"
 # Link hinting
@@ -80,15 +90,4 @@ keymap SPC-f   COMMAND "SET_OPTION display_link_number=toggle ; RESHAPE"
 keymap f       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; GOTO_LINK"
 keymap F       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; TAB_LINK"
 keymap yf      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; EXTERN_LINK 'printf %s | wl-copy 2>/dev/null'"
-# }}}
-
-# Misc {{{
-keymap SPC-o OPTIONS
-keymap SPC-h HELP
-keymap SPC-m MENU
-keymap SPC-x INFO
-keymap SPC-w WRAP_TOGGLE
-keymap SPC-b      SHELL "$EDITOR ~/.local/share/bookmarks"
-keymap SPC-c      SHELL "$EDITOR ~/.config/w3m/config"
-keymap SPC-k      SHELL "$EDITOR ~/.config/w3m/keymap"
 # }}}
