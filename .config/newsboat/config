@@ -41,3 +41,7 @@ color listfocus          black     cyan
 color listfocus_unread   black     cyan
 color info               default   black      bold
 color article            default   default
+
+# Macros
+macro v set browser "mpv %u"; open-in-browser; set browser "xdg-open %u";
+macro q quit
