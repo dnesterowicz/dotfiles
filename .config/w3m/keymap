@@ -1,165 +1,89 @@
-# Source: https://raw.githubusercontent.com/vparnas/config/master/.w3m/keymap
-
-# Ctrl  : C-, ^
-# Escape: ESC-, M-, ^[
-# Space : SPC, ' '
-# Tab   : TAB, ^i, ^I
-# Delete: DEL, ^?
-# Up    : UP, ^[[A
-# Down  : DOWN, ^[[B
-# Right : RIGHT, ^[[C
-# Left  : LEFT, ^[[D
-
-# Marks {{{
-keymap m    MARK
-keymap .    NEXT_MARK
-keymap ,    PREV_MARK
-# Mark all search terms
-keymap \"   REG_MARK
-keymap  :   NULL
-keymap ";"  MARK_URL
-# }}}
-
-# Navigation, links, tabs {{{
-keymap J    UP
-keymap K    DOWN
-keymap M-,  LEFT
-keymap M-.  RIGHT
-
-# Movement across the page
-keymap h    MOVE_LEFT
-keymap k    MOVE_UP
-keymap j    MOVE_DOWN
-keymap l    MOVE_RIGHT
-keymap <    SHIFT_LEFT
-keymap >    SHIFT_RIGHT
-keymap b    PREV_WORD
+# Navigation {{{
+keymap j  UP
+keymap k  DOWN
+keymap h  LEFT
+keymap l  RIGHT
 keymap w    NEXT_WORD
-
-# Various ways to to proceed page by page
-keymap C-d  NEXT_PAGE
-keymap C-u  PREV_PAGE
-
-keymap TAB  NEXT_LINK
-keymap M-TAB PREV_LINK
-
-keymap [    LINK_BEGIN
-keymap ]    LINK_END
-
+keymap b    PREV_WORD
+keymap C-d  NEXT_HALF_PAGE
+keymap C-u  PREV_HALF_PAGE
+keymap C-f  NEXT_PAGE
+keymap C-b  PREV_PAGE
+keymap zh   CENTER_H
+keymap zz   CENTER_V
+keymap C-g  LINE_INFO
 keymap 0    LINE_BEGIN
 keymap $    LINE_END
-
-keymap g    NULL
 keymap gg   BEGIN
 keymap G    END
-keymap M-g  GOTO_LINE
-keymap Z    CENTER_H
-keymap z    CENTER_V
-# Undo/redo last movement/jump across the page
-keymap (    UNDO
-keymap )    REDO
-# }}}
-
-# Search {{{
-keymap /    SEARCH
-keymap ?    SEARCH_BACK
+keymap u  UNDO
+keymap C-r  REDO
+keymap /    ISEARCH
+keymap ?    ISEARCH_BACK
 keymap N    SEARCH_PREV
 keymap n    SEARCH_NEXT
-# Incremental search
-keymap C-b  ISEARCH_BACK
-keymap C-s  ISEARCH
+# }}}
+
+# Buffer operations {{{
+keymap H    PREV
+keymap L    NEXT
+keymap SPC-SPC SELECT_MENU
+keymap c    PEEK
+keymap U    GOTO
+keymap C-u  GOTO_RELATIVE
+keymap R  RELOAD
+keymap SPC-w EXTERN
+
+keymap v    VIEW # View source
+keymap :e   LOAD # Open local file
+keymap e    EDIT_SCREEN # Edit text
+keymap E    EDIT # Edit source 
+keymap :w    SAVE_SCREEN # Save buffer (text)
+keymap C-S   SAVE # Save html (source)
 # }}}
 
 # Tab operations {{{
-keymap {        PREV_TAB
-keymap }        NEXT_TAB
-keymap M-{      TAB_LEFT
-keymap M-}      TAB_RIGHT
-keymap C-q      CLOSE_TAB
-keymap C-t      NEW_TAB
-keymap M-t      TAB_MENU
+keymap C-t   NEW_TAB
+keymap x    CLOSE_TAB
+keymap J    PREV_TAB
+keymap K    NEXT_TAB
+keymap <    TAB_LEFT
+keymap >    TAB_RIGHT
 # }}}
 
 # Links {{{
 keymap u    PEEK_LINK
+keymap SPC-l  LIST_MENU
+keymap C-n  NEXT_LINK
+keymap C-p  PREV_LINK
+keymap [    LINK_BEGIN
+keymap ]    LINK_END
+keymap t    TAB_LINK
 keymap yy   EXTERN 'printf %s | wl-copy' # yank url
-keymap T    TAB_LINK
-keymap a    SAVE_LINK
-keymap M-l  LIST_MENU
-# }}}
 
-# Buffer operations {{{
-# Previous buffer, close current
-keymap B    BACK
-keymap H    PREV
-keymap L    NEXT
-keymap c    PEEK
-keymap SPCSPC SELECT_MENU
-keymap U    GOTO
-keymap M-u  GOTO_RELATIVE
-
-keymap v    VIEW # View source
-keymap :e   LOAD # Open local file
-keymap M-e  EDIT_SCREEN # Edit text
-keymap E    EDIT # Edit source 
-keymap s    SAVE_SCREEN # Save buffer (text)
-keymap :w   SAVE # Save html (source)
-
-keymap \\\w EXTERN
-keymap C-r  RELOAD
-keymap C-R  REDRAW
-keymap |    PIPE_BUF
-# }}}
-
-# Image operations {{{
 keymap i    PEEK_IMG
-keymap I    VIEW_IMAGE #/usr/share/doc/w3m/README.img
-keymap M-I  SAVE_IMAGE
-# }}}
-
-# Misc {{{
-keymap ZZ   QUIT
-keymap C-z  SUSPEND
-keymap C-h  HISTORY
-keymap C-g  LINE_INFO
-keymap C-o  OPTIONS
-keymap M-o  SET_OPTION
-keymap M-k  DEFINE_KEY
-keymap M-r  REINIT # Reload config options
-keymap M    MENU # Optionally configurable (~/.config/w3m/menu)
-keymap M-+  INFO # page info, including the response HTTP header
-keymap M-w  WRAP_TOGGLE
-keymap M-f  FRAME # Toggle frames
-keymap C-c  SUBMIT # Trigger input field submit action
-
-keymap !    SHELL
-keymap #    PIPE_SHELL
-keymap @    READ_SHELL
-keymap D    DOWNLOAD_LIST
-keymap :: COMMAND # Run internal command
-
-keymap M-a ADD_BOOKMARK
-keymap M-b BOOKMARK
-# }}}
-
-# User-defined bindings {{{
-keymap  :b       SHELL "bookmark"
-keymap  :c       SHELL "$EDITOR ~/.config/w3m/config"
-keymap  :k       SHELL "$EDITOR ~/.config/w3m/keymap"
+keymap I    VIEW_IMAGE 
+keymap SPC-I SAVE_IMAGE
 # }}}
 
 # Macros {{{
-keymap \\\h COMMAND "HELP; SEARCH ^User-Defined; NEXT_PAGE; CENTER_V"
-keymap \\\u COMMAND "SET_OPTION mark_all_pages=toggle ; RELOAD" # Treat URL strings as links
-keymap \\\b COMMAND "ADD_BOOKMARK; LINK_END; PREV_LINK; GOTO_LINK"
-keymap \\\tr GOTO http://wttr.in/
-# Omnibar
 keymap o COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar.cgi ; DICT_WORD"
 keymap O COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar-tab.cgi ; DICT_WORD"
 # Link hinting
 keymap SPC-f   COMMAND "SET_OPTION display_link_number=toggle ; RESHAPE"
 keymap f       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; GOTO_LINK"
 keymap F       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; TAB_LINK"
-# strip out extra 'pre-content' on CMS-rich or wordpress sites with id="content" tag
-#keymap  M-7        COMMAND "VIEW; PIPE_BUF \"sed -n '1,/<body/p; /id=\\\"content\\\"/,$p'\" VIEW"
+keymap yf      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; EXTERN_LINK 'printf '%s' | wl-copy 2>/dev/null'"
+# }}}
+
+# Misc {{{
+keymap !    SHELL
+keymap SPC-h HISTORY
+keymap SPC-o OPTIONS
+keymap SPC-m MENU # Optionally configurable (~/.config/w3m/menu)
+keymap SPC-x INFO # page info, including the response HTTP header
+keymap SPC-w WRAP_TOGGLE
+keymap SPC-b       SHELL "~/.local/bin/bookmark"
+keymap SPC-sc      SHELL "$EDITOR ~/.config/w3m/config"
+keymap SPC-sk      SHELL "$EDITOR ~/.config/w3m/keymap"
 # }}}
