@@ -34,12 +34,15 @@ keymap C-u  GOTO_RELATIVE
 keymap R  RELOAD
 keymap SPC-w EXTERN
 
-keymap v    VIEW # View source
-keymap :e   LOAD # Open local file
-keymap e    EDIT_SCREEN # Edit text
-keymap E    EDIT # Edit source 
-keymap :w    SAVE_SCREEN # Save buffer (text)
-keymap C-S   SAVE # Save html (source)
+# view source
+keymap v    VIEW 
+keymap :e   LOAD
+keymap e    EDIT_SCREEN 
+#keymap C-e  EDIT 
+keymap :w   SAVE_SCREEN
+keymap C-s  SAVE
+keymap Esc-y EXTERN 'printf %s | wl-copy'
+keymap Esc-b EXTERN 'printf %s >> ~/.local/share/bookmarks'
 # }}}
 
 # Tab operations {{{
@@ -59,31 +62,33 @@ keymap C-p  PREV_LINK
 keymap [    LINK_BEGIN
 keymap ]    LINK_END
 keymap t    TAB_LINK
-keymap yy   EXTERN 'printf %s | wl-copy' # yank url
+keymap yy  EXTERN_LINK 'printf %s | wl-copy'
+keymap b   EXTERN_LINK 'printf %s >> ~/.local/share/bookmarks'
 
 keymap i    PEEK_IMG
 keymap I    VIEW_IMAGE 
 keymap SPC-I SAVE_IMAGE
 # }}}
-
+ 
 # Macros {{{
+keymap !    SHELL
+keymap xb   SHELL "~/.local/bin/bookmark"
 keymap o COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar.cgi ; DICT_WORD"
 keymap O COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar-tab.cgi ; DICT_WORD"
 # Link hinting
 keymap SPC-f   COMMAND "SET_OPTION display_link_number=toggle ; RESHAPE"
 keymap f       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; GOTO_LINK"
 keymap F       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; TAB_LINK"
-keymap yf      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; EXTERN_LINK 'printf '%s' | wl-copy 2>/dev/null'"
+keymap yf      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; EXTERN_LINK 'printf %s | wl-copy 2>/dev/null'"
 # }}}
 
 # Misc {{{
-keymap !    SHELL
-keymap SPC-h HISTORY
 keymap SPC-o OPTIONS
-keymap SPC-m MENU # Optionally configurable (~/.config/w3m/menu)
-keymap SPC-x INFO # page info, including the response HTTP header
+keymap SPC-h HELP
+keymap SPC-m MENU
+keymap SPC-x INFO
 keymap SPC-w WRAP_TOGGLE
-keymap SPC-b       SHELL "~/.local/bin/bookmark"
-keymap SPC-sc      SHELL "$EDITOR ~/.config/w3m/config"
-keymap SPC-sk      SHELL "$EDITOR ~/.config/w3m/keymap"
+keymap SPC-b      SHELL "$EDITOR ~/.local/share/bookmarks"
+keymap SPC-c      SHELL "$EDITOR ~/.config/w3m/config"
+keymap SPC-k      SHELL "$EDITOR ~/.config/w3m/keymap"
 # }}}

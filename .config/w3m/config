@@ -1,3 +1,5 @@
-ignorecase_search to 1
+ignorecase_search 1
+wrap_search 1
 use_dictcommand 1
+editor $EDITOR
 cgi_bin ~/.config/w3m/cgi-bin
