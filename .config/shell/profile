@@ -6,6 +6,7 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
 export HISTFILE="$XDG_CACHE_HOME/zsh/history"
 export ZDOTDIR="$XDG_CONFIG_HOME/shell"
+export W3M_DIR="$XDG_CONFIG_HOME/w3m"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/password-store"
 export XDG_DOCUMENTS_DIR="$HOME/docs"
@@ -22,6 +23,7 @@ export RUNNER='wmenu-run'
 
 # Other programs
 export ZK_NOTEBOOK_DIR="$HOME/docs/notes" 
+export WWW_HOME='https://lite.duckduckgo.com/lite' #w3m homepage
 
 # Path
 export PATH="$PATH:$HOME/.local/bin"
