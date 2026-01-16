@@ -12,6 +12,7 @@ keymap C-b  PREV_PAGE
 keymap zh   CENTER_H
 keymap zz   CENTER_V
 keymap C-g  LINE_INFO
+keymap SPC-g COMMAND "SET_OPTION show_lnum=toggle ; RESHAPE"
 keymap 0    LINE_BEGIN
 keymap $    LINE_END
 keymap gg   BEGIN
@@ -28,43 +29,34 @@ keymap n    SEARCH_NEXT
 keymap H    PREV
 keymap L    NEXT
 keymap SPC-SPC SELECT_MENU
-keymap c    PEEK
+keymap p    PEEK
 keymap U    GOTO
-keymap C-u  GOTO_RELATIVE
-keymap R  RELOAD
-keymap SPC-w EXTERN
-
-# view source
+keymap ESC-u GOTO_RELATIVE
 keymap v    VIEW 
 keymap :e   LOAD
 keymap e    EDIT_SCREEN 
-#keymap C-e  EDIT 
 keymap :w   SAVE_SCREEN
 keymap C-s  SAVE
-keymap Esc-y EXTERN 'printf %s | wl-copy'
-keymap Esc-b EXTERN 'printf %s >> ~/.local/share/bookmarks'
-# }}}
-
-# Tabs {{{
-keymap C-t   NEW_TAB
-keymap X    CLOSE_TAB
-keymap J    PREV_TAB
-keymap K    NEXT_TAB
-keymap <    TAB_LEFT
-keymap >    TAB_RIGHT
+keymap ESC-r RELOAD
+keymap ESC-w EXTERN
+keymap ESC-y EXTERN 'printf %s | wl-copy'
+keymap ESC-b EXTERN 'printf %s >> ~/.local/share/bookmarks'
 # }}}
 
 # Links {{{
-keymap u    PEEK_LINK
 keymap SPC-l  LIST_MENU
 keymap C-n  NEXT_LINK
 keymap C-p  PREV_LINK
 keymap [    LINK_BEGIN
 keymap ]    LINK_END
-keymap t    TAB_LINK
 keymap yy  EXTERN_LINK 'printf %s | wl-copy'
 keymap b   EXTERN_LINK 'printf %s >> ~/.local/share/bookmarks'
-keymap xw  EXTERN_LINK
+keymap \\\w  EXTERN_LINK
+#hinting
+keymap SPC-f   COMMAND "SET_OPTION display_link_number=toggle ; RESHAPE"
+keymap f       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; GOTO_LINK"
+keymap yf      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; EXTERN_LINK 'printf %s | wl-copy 2>/dev/null'"
+keymap yw      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; EXTERN_LINK"
 #images
 keymap i  NEXT_IMAGE
 keymap I  PREV_IMAGE
@@ -73,21 +65,13 @@ keymap SPC-I SAVE_IMAGE
 # }}}
  
 # Misc {{{
+keymap \\\b SHELL "~/.local/bin/bookmark"
+keymap \\\r COMMAND "READ_SHELL 'readable $W3M_URL -p html-title,html-content > /tmp/readable.html' ; LOAD /tmp/readable.html"
+keymap o COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar.cgi ; DICT_WORD"
 keymap SPC-o OPTIONS
 keymap SPC-h HELP
 keymap SPC-x INFO
-keymap SPC-r REINIT
-keymap SPC-w EXTERN
 keymap SPC-b SHELL "$EDITOR ~/.local/share/bookmarks"
 keymap SPC-c SHELL "$EDITOR ~/.config/w3m/config"
 keymap SPC-k SHELL "$EDITOR ~/.config/w3m/keymap"
-keymap xb    SHELL "~/.local/bin/bookmark"
-
-keymap o COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar.cgi ; DICT_WORD"
-keymap O COMMAND "SET_OPTION dictcommand=file:///cgi-bin/omnibar-tab.cgi ; DICT_WORD"
-# Link hinting
-keymap SPC-f   COMMAND "SET_OPTION display_link_number=toggle ; RESHAPE"
-keymap f       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; GOTO_LINK"
-keymap F       COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; TAB_LINK"
-keymap yf      COMMAND "SET_OPTION display_link_number=0 ; RESHAPE ; LINK_BEGIN ; EXTERN_LINK 'printf %s | wl-copy 2>/dev/null'"
 # }}}
