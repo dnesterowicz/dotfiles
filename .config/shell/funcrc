@@ -11,3 +11,4 @@ fzf-open(){
 }
 
 autoload fzf-open
+zle -N fzf-open

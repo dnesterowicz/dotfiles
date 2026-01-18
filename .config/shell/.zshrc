@@ -26,10 +26,6 @@ compinit
 
 
 # Keybinds
-autoload -z edit-command-line; 
-zle -N edit-command-line
-bindkey "^e" edit-command-line
-zle -N fzf-open
 bindkey "^o" fzf-open
 bindkey -s ^t "tmux-sessionizer\n"
 
