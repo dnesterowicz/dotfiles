@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=HTML pager
+Exec=/usr/bin/w3m %u

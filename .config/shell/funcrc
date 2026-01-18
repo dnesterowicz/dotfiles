@@ -1,0 +1,13 @@
+fzf-open(){
+    FZF_MENU='fzf --preview "preview {}" --bind \?:toggle-preview --reverse --keep-right --freeze-right=1 --border'
+    choice=$(find -L ~/docs ~/media ~/src ~/dl ~/.config ~/.local/bin -type f,d ! -path "*/.git/*" | eval "$FZF_MENU")
+    [ -z "$choice" ] && exit 0
+    while [ -d "$choice" ]
+    do
+        cd "$choice"; zle reset-prompt
+        choice=$(find -L $choice -type f,d ! -path "*/.git/*" | eval "$FZF_MENU")
+    done
+    [ -n "$choice" ] && xdg-open $choice
+}
+
+autoload fzf-open
